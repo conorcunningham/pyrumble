@@ -1,4 +1,4 @@
-# Rumble Run Client
+# Rumble Run API Client
 
 ### A simple Python client for working with the Rumble Run API
 
