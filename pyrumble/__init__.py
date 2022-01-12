@@ -1,1 +1,1 @@
-from client import Rumble
+from .client import Rumble
