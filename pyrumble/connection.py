@@ -51,7 +51,7 @@ class Connection:
 
     def get(self, url, headers=None, **kwargs):
         headers = self.parse_headers(headers)
-        return self.__request("GET", url, headers=headers, params=kwargs)
+        return self.__request("GET", url, headers=headers, **kwargs)
 
     def post(self, url, data, headers=None, **kwargs):
         url = self.base_url + url
@@ -88,6 +88,8 @@ class Connection:
 
         if status_code == 404:
             raise NotFoundException(error_msg)
+        if status_code == 401:
+            raise AuthorizationException(error_msg)
         elif status_code == 403:
             raise AuthorizationException(error_msg)
         elif 400 >= status_code <= 499:

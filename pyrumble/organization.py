@@ -12,7 +12,8 @@ class Organization:
         :return: A list of assets
         """
         url = "org/assets"
-        return self.connection.get(url, params=kwargs)
+        ret = self.connection.get(url, **kwargs)
+        return ret
 
     def retrieve_asset(self, asset_id):
         url = f"org/assets/{asset_id}"
